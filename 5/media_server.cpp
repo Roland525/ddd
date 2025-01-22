@@ -121,3 +121,5 @@ int main() {
 
 return 0;
 }
+
+//item, armor, item clothes, layer
