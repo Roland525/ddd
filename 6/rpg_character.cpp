@@ -5,6 +5,23 @@
 #include <vector>
 using namespace std;
 
+
+int rndm(int lower, int upper) {
+    // Генератор случайных чисел
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dist(lower, upper);
+
+    return dist(gen);
+}
+
+class Weapon{
+    public:
+        int damage;
+        int dps;
+        int accuracy;
+};
+
 class User {
     
     public:
@@ -17,13 +34,7 @@ class User {
     }
 
 };
-class Weapon{
-    public:
-        string name;
-        int damage;
-        int dps;
-        int accuracy;
-};
+
 class Onehand : public Weapon{
 
 };
@@ -71,14 +82,11 @@ class Spear : public Weapon{
         }
 };
 
-int rndm(int lower, int upper) {
-    // Генератор случайных чисел
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> dist(lower, upper);
+class Armor : User{
 
-    return dist(gen);
-}
+};
+
+class 
 
 int main(){
     int answer = 0;
@@ -93,7 +101,7 @@ int main(){
     cin >> answer;
     if (answer == 1){
         answer = 0;
-        cout << "Choose 1 hand weapon for first hand: " << endl;
+        cout << "Choose 1 hand weapon: " << endl;
         cout << "(1) Knife " << "(2) Axe" << endl;
         cout << "You answer: ";
         cin >> answer;
@@ -102,15 +110,15 @@ int main(){
                 Knife* knife = new Knife();
                 player1.addweapon(knife);
             }
-            if (answer == 2){
+            else if (answer == 2){
                 cout << "Axe equped" << endl;
                 Axe* axe = new Axe();
                 player1.addweapon(axe);
             }
         }
-    if (answer == 2){
+    else if (answer == 2){
         answer = 0;
-        cout << "Choose 2 hand weapon for first hand: " << endl;
+        cout << "Choose 2 hand weapon: " << endl;
         cout << "(1) Sword " << "(2) Spear" << endl;
         cout << "You answer: ";
         cin >> answer;
@@ -119,14 +127,15 @@ int main(){
                 Sword* sword = new Sword();
                 player1.addweapon(sword);
             }
-            if (answer == 2){
+            else if (answer == 2){
                 cout << "Spear equped" << endl;
                 Spear* spear = new Spear();
                 player1.addweapon(spear);
             }
         }
 
-    cout << "Choose armor for first player"; 
+    cout << "Choose armor for first player" << endl;
+
     answer = 0;
     
 
