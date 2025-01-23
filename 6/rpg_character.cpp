@@ -26,6 +26,7 @@ class User {
     
     public:
         string name;
+        int dps_with_armor;
         int hp = 100;
         vector<Weapon*> inventory;
 
@@ -68,7 +69,7 @@ class Sword : public Weapon{
     public:
         Sword(){
             damage = rndm(80, 120);
-            dps = 10;
+            dps = 20;
             accuracy = 30;
         }
 };
@@ -86,7 +87,32 @@ class Armor : User{
 
 };
 
-class 
+class Leather : public Armor{
+    public:
+        Leather(){
+            hp += 50;
+            dps_with_armor = 0;
+        }
+};
+
+class Chainmail : public Armor{
+    public:
+        Armor(){
+            hp += 100;
+            dps_with_armor = -30;
+
+        }
+
+};
+
+class Gold : public Armor{
+    public:
+        Gold(){
+            hp += 250;
+            dps_with_armor = -40;
+        }
+};
+
 
 int main(){
     int answer = 0;
