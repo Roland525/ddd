@@ -108,7 +108,7 @@ class Twohand : public Weapon{
 
 };
 
-class Sword : public Weapon{
+class Sword : public Twohand{
     public:
         Sword(){
             damage = rndm(80, 120);
