@@ -75,7 +75,6 @@ class User{
     hp += armor->armor_hp;
     }
 
-
 };
 
 
@@ -265,16 +264,11 @@ int main(){
         player2.addArmor(gold);
     }
 //-----------------------------------------------
-    while(player1.hp <= 0 || player2.hp <= 0){
-        if(player1.hp <= 0){
-            cout << player2.name << " Win!";
-            break;
-        }
-        if(player2.hp <= 0){
-            cout << player1.name << " Win!";
-            break;
-       }
-       
+
+    if (player1.hp > 0) {
+        cout << player1.name << " wins!" << endl;
+    } else {
+        cout << player2.name << " wins!" << endl;
     }
 
     return 0;
