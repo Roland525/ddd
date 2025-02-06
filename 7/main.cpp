@@ -4,11 +4,16 @@
 
 using namespace std;
 
-class LibraryManager{
+class Member{
+    string name;
+    
+};
+
+class LibraryManager : public Member{
 
 };
 
 class Library{
     string name;
     int member;
-}
+};
