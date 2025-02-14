@@ -66,7 +66,11 @@ public:
     }
     void pop(){
   // get the first elem of the list and than delete it
-        
+        Node* newNode = new Node();
+        first_elem = nullptr;
+
+
+
     }
     void del(int position){} // delete elem that is placed in positon
 
@@ -93,5 +97,6 @@ int main()
     llist.insert(1,123);
     llist.append(12);
     llist.push(123);
+    llist.pop(1)
 
 }
