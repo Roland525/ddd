@@ -31,10 +31,6 @@ public:
 
     void insert(int position, int value)
     {
-        if (position < 0){
-        return;
-        }
-
         Node* newNode = new Node(value);
 
         if (position == 0)
@@ -45,10 +41,22 @@ public:
         }
     }
 
-    void append(int value){
-//add elem after the last elem
+    void append(int value) {
+        //add elem after the last elem
+        Node* newNode = new Node(value);
 
-}
+        if (first_elem == nullptr) {
+            first_elem = newNode;
+            return;
+        }
+
+        Node* current = first_elem;
+        while (current->get_next_member() != nullptr) {
+            current = current->get_next_member();
+        }
+    
+        current->add_next_member(newNode);
+    }
 
     void push(int value){
  // add elem at the beggining of the list 
