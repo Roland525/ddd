@@ -44,9 +44,22 @@ public:
             return;
         }
     }
-    void append(){} //add elem after the last elem
-    void push(){} // add elem at the beggining of the list
-    void pop(){} // get the first elem of the list and than delete it
+
+    void append(int value){
+//add elem after the last elem
+
+}
+
+    void push(int value){
+ // add elem at the beggining of the list 
+        Node* newNode = new Node(value);
+        newNode-> add_next_member(first_elem);
+        first_elem = newNode;
+    }
+    void pop(){
+  // get the first elem of the list and than delete it
+        
+    }
     void del(int position){} // delete elem that is placed in positon
 
     int get_len(){
@@ -69,5 +82,8 @@ int main()
     cout << llist.first_elem->get_value() << endl;
     cout << llist.first_elem->get_next_member()->get_value() << endl;
     cout << llist.get_len() << endl;
-    llist.insert(12,123);
+    llist.insert(1,123);
+    llist.append(12);
+    llist.push(123);
+
 }
