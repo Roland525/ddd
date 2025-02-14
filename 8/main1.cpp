@@ -64,12 +64,16 @@ public:
         newNode-> add_next_member(first_elem);
         first_elem = newNode;
     }
-    void pop(){
+    void pop(int value){
   // get the first elem of the list and than delete it
-        Node* newNode = new Node();
+        
+        Node* newNode = new Node(value);
+        Node* current = first_elem;
         first_elem = nullptr;
 
-
+        while (current->get_next_member() != nullptr) {
+            first_elem = current;
+        }
 
     }
     void del(int position){} // delete elem that is placed in positon
@@ -97,6 +101,6 @@ int main()
     llist.insert(1,123);
     llist.append(12);
     llist.push(123);
-    llist.pop(1)
+    llist.pop(1);
 
 }
