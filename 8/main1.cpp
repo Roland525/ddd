@@ -64,19 +64,40 @@ public:
         newNode-> add_next_member(first_elem);
         first_elem = newNode;
     }
-    void pop(int value){
+
+    void pop(){
   // get the first elem of the list and than delete it
-        
-        Node* newNode = new Node(value);
-        Node* current = first_elem;
-        first_elem = nullptr;
-
-        while (current->get_next_member() != nullptr) {
-            first_elem = current;
+        if(first_elem == nullptr){
+            return;
         }
-
+        Node* temp = first_elem;
+        first_elem = first_elem->get_next_member();
+        delete temp;
+        
     }
-    void del(int position){} // delete elem that is placed in positon
+
+    void del(int position){
+   // delete elem that is placed in positon
+        if(first_elem == nullptr){
+            return;
+        }
+        if(position == 0){
+            Node* temp = first_elem;
+            first_elem = first_elem->get_next_member();
+            delete temp;
+            return;
+        }
+        Node* current = first_elem;
+        Node* tmp = nullptr;
+        int i = 0;
+        while(current != nullptr && i < position){
+            tmp = current;
+            current = current->get_next_member();
+            i++; 
+        }
+        tmp -> add_next_member(current->get_next_member());
+        delete current;
+    }
 
     int get_len(){
         int i = 0;
@@ -87,6 +108,32 @@ public:
         }
         return i;
     }
+
+    void sort(){
+        if (first_elem == nullptr){
+            return;
+        }
+    Node* current = first_elem;
+    Node* back = nullptr;
+    Node* next = nullptr;
+        while(current->get_next_member() != nullptr) {
+            next = current->get_next_member();
+            if(current->get_value() > next->get_value()) {
+                current->add_next_member(next->get_next_member());
+                next->add_next_member(current);
+
+                if (back == nullptr){
+                    first_elem = next;
+                }
+                else{
+                    back->add_next_member(next);
+                }
+            }
+        }
+
+    }
+
+
 };
 
 int main()
@@ -101,6 +148,6 @@ int main()
     llist.insert(1,123);
     llist.append(12);
     llist.push(123);
-    llist.pop(1);
-
+    llist.pop();
+    llist.del(2);
 }
