@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 class Node
@@ -116,7 +117,8 @@ public:
     Node* current = first_elem;
     Node* back = nullptr;
     Node* next = nullptr;
-    
+    bool a = True;
+    while(a != False){
         while(current->get_next_member() != nullptr) {
             next = current->get_next_member();
             if(current->get_value() > next->get_value()) {
@@ -131,22 +133,39 @@ public:
                 }
             }
         }
+        a = False;
+    }
 
+    void show(){
+        Node* current = first_elem;
+
+        while(current != nullptr){
+            cout << current->get_value() << " ";
+            current = current->get_next_member();
+
+        }
+        cout << endl;
     }
 };
 
 int main()
 {
     Node* node0 = new Node(12);
-    Node* node1 = new Node(123);
+    Node* node1 = new Node(2);
+    Node* node2 = new Node(12);
     node0->add_next_member(node1);
     LinkedList llist = LinkedList(node0);
-    cout << llist.first_elem->get_value() << endl;
-    cout << llist.first_elem->get_next_member()->get_value() << endl;
-    cout << llist.get_len() << endl;
+    //cout << llist.first_elem->get_value() << endl;
+    //cout << llist.first_elem->get_next_member()->get_value() << endl;
+    //cout << llist.get_len() << endl;
     llist.insert(1,123);
+    llist.show();
     llist.append(12);
+    llist.show();
     llist.push(123);
+    llist.show();
     llist.pop();
+    llist.show();
     llist.del(2);
+    llist.show();
 }
