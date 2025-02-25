@@ -117,8 +117,8 @@ public:
     Node* current = first_elem;
     Node* back = nullptr;
     Node* next = nullptr;
-    bool a = True;
-    while(a != False){
+    int a = 0;
+    while(a == 0){
         while(current->get_next_member() != nullptr) {
             next = current->get_next_member();
             if(current->get_value() > next->get_value()) {
@@ -133,8 +133,9 @@ public:
                 }
             }
         }
-        a = False;
+        a = 1;
     }
+}
 
     void show(){
         Node* current = first_elem;
